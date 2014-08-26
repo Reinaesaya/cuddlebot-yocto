@@ -1,0 +1,55 @@
+#!/bin/sh
+DAEMON=/usr/sbin/hostapd
+NAME=hostapd
+DESC="HOSTAP Daemon"
+ARGS="/etc/hostapd.conf -B"
+
+test -f $DAEMON || exit 0
+
+[ -r /etc/default/hostapd ] && . /etc/default/hostapd
+
+set -e
+
+case "$HOSTAPD_ENABLE" in
+	[Nn]*)
+		exit 0
+		;;
+esac
+
+case "$1" in
+  start)
+		echo -n "Starting $DESC: "
+
+		HMAC=`ifconfig wlan0 | grep HWaddr | cut -d : -f 5-7 | tr '[:upper:]' '[:lower:]' | tr -d '[:space:]:'`
+		SSID="ssid=cuddlebot-$HMAC"
+
+		if ! grep -Fxq "$SSID" /etc/hostapd.conf
+		then
+			sed -i "s/ssid=cuddlebot/$SSID/" /etc/hostapd.conf
+		fi
+
+		start-stop-daemon -S -x $DAEMON -- $ARGS
+		echo "$NAME."
+		;;
+  stop)
+		echo -n "Stopping $DESC: "
+		start-stop-daemon -K -x $DAEMON
+		echo "$NAME."
+		;;
+  restart)
+		$0 stop
+		sleep 1
+		$0 start
+		;;
+  reload)
+		echo -n "Reloading $DESC: "
+		killall -HUP $(basename ${DAEMON})
+		echo "$NAME."
+		;;
+  *)
+		echo "Usage: $0 {start|stop|restart|reload}"
+		exit 1
+		;;
+esac
+
+exit 0

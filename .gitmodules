@@ -1,0 +1,30 @@
+[submodule "sources/base"]
+	path = sources/base
+	url = git://github.com/Freescale/fsl-community-bsp-base
+[submodule "sources/meta-darwin"]
+	path = sources/meta-darwin
+	url = git://git.yoctoproject.org/meta-darwin
+[submodule "sources/meta-eca"]
+	path = sources/meta-eca
+	url = git://git.yoctoproject.org/meta-eca
+[submodule "sources/meta-fsl-arm"]
+	path = sources/meta-fsl-arm
+	url = git://git.yoctoproject.org/meta-fsl-arm
+[submodule "sources/meta-fsl-arm-extra"]
+	path = sources/meta-fsl-arm-extra
+	url = git://git.yoctoproject.org/meta-fsl-arm-extra
+[submodule "sources/meta-openembedded"]
+	path = sources/meta-openembedded
+	url = git://git.openembedded.org/meta-openembedded
+[submodule "sources/meta-smartphone"]
+	path = sources/meta-smartphone
+	url = git://github.com/shr-distribution/meta-smartphone.git
+[submodule "sources/meta-wandboard-ap"]
+	path = sources/meta-wandboard-ap
+	url = https://github.com/johnweber/meta-wandboard-ap.git
+[submodule "sources/openembedded-core"]
+	path = sources/openembedded-core
+	url = git://git.openembedded.org/openembedded-core
+[submodule "sources/poky"]
+	path = sources/poky
+	url = git://git.yoctoproject.org/poky

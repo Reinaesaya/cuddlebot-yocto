@@ -1,0 +1,12 @@
+diff --git a/common.gypi b/common.gypi
+index 42ab572..68a0ef8 100644
+--- a/common.gypi
++++ b/common.gypi
+@@ -11,6 +11,7 @@
+     'gcc_version%': 'unknown',
+     'clang%': 0,
+     'python%': 'python',
++    'arm_version': '7',
+ 
+     # Enable V8's post-mortem debugging only on unix flavors.
+     'conditions': [
