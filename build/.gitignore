@@ -1,0 +1,4 @@
+bitbake.lock
+cache
+sanity_info
+tmp
