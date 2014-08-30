@@ -14,7 +14,3 @@ RUN apt-get install -yq gawk wget git-core diffstat unzip texinfo gcc-multilib b
 
 # Install dependencies for ChibiOS
 RUN apt-get install -yq gcc-arm-none-eabi
-
-# Add data volumes
-#VOLUME /yocto
-#WORKDIR /yocto
