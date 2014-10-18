@@ -1,7 +1,7 @@
 HOMEPAGE = "http://hostap.epitest.fi"
 SECTION = "kernel/userland"
 LICENSE = "GPLv2 | BSD"
-LIC_FILES_CHKSUM = "file://COPYING;md5=ab87f20cd7e8c0d0a6539b34d3791d0e"
+LIC_FILES_CHKSUM = "file://README;md5=0854a4da34ac3990770794d771fac7fd"
 DEPENDS = "libnl openssl"
 SUMMARY = "User space daemon for extended IEEE 802.11 management"
 
@@ -16,7 +16,7 @@ SRC_URI = " \
     file://hostapd.conf \
 "
 
-S = "${WORKDIR}/hostapd-${PV}/hostapd-${PV}"
+S = "${WORKDIR}/hostapd-${PV}/hostapd"
 
 do_configure() {
     install -m 0644 ${WORKDIR}/defconfig ${S}/.config
