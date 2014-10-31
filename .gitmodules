@@ -4,9 +4,6 @@
 [submodule "sources/meta-darwin"]
 	path = sources/meta-darwin
 	url = git://git.yoctoproject.org/meta-darwin
-[submodule "sources/meta-eca"]
-	path = sources/meta-eca
-	url = git://git.yoctoproject.org/meta-eca
 [submodule "sources/meta-fsl-arm"]
 	path = sources/meta-fsl-arm
 	url = git://git.yoctoproject.org/meta-fsl-arm

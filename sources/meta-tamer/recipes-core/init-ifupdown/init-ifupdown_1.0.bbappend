@@ -1,1 +1,1 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/init-ifupdown:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
