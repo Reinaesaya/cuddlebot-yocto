@@ -30,13 +30,18 @@ usage()
     <build-dir>: specifies the build directory location (required)
 
 If undefined, this script will set \$MACHINE to 'imx6qsabresd'.
+"
 
+    ls sources/*/conf/machine/*.conf > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        echo -e "
 Supported machines: `echo; ls sources/*/conf/machine/*.conf \
 | sed s/\.conf//g | sed -r 's/^.+\///' | xargs -I% echo -e "\t%"`
 
 To build for a machine listed above, run this script as:
 MACHINE=<machine> source $PROGNAME <build-dir>
 "
+    fi
 }
 
 clean_up()
@@ -131,6 +136,11 @@ fi
 cd $OEROOT
 
 . ./oe-init-build-env $CWD/$1 > /dev/null
+
+# if conf/local.conf not generated, no need to go further
+if [ ! -e conf/local.conf ]; then
+    clean_up && return 1
+fi
 
 # Clean up PATH, because if it includes tokens to current directories somehow,
 # wrong binaries can be used instead of the expected ones during task execution
