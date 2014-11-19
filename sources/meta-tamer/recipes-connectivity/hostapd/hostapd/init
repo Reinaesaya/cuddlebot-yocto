@@ -2,18 +2,20 @@
 DAEMON=/usr/sbin/hostapd
 NAME=hostapd
 DESC="HOSTAP Daemon"
-ARGS="/etc/hostapd.conf -B"
 
-test -f $DAEMON || exit 0
+CONFIN="/etc/hostapd.conf"
+CONFOU="/tmp/hostapd-local.ELcyOo.conf"
+ARGS="$CONFOU -B"
+
+test -f "$DAEMON" || exit 0
 
 set -e
 
-HMAC=`ifconfig wlan0 | grep HWaddr | cut -d : -f 5-7 | tr '[:upper:]' '[:lower:]' | tr -d '[:space:]:'`
-SSID="ssid=cuddlebot-$HMAC"
-
-if ! grep -Fxq "$SSID" /etc/hostapd.conf
+if [ ! -f "$CONFOU" ]
 then
-  sed -i "s/ssid=cuddlebot/$SSID/" /etc/hostapd.conf
+  HMAC=`ifconfig wlan0 | grep HWaddr | cut -d : -f 5-7 | tr '[:upper:]' '[:lower:]' | tr -d '[:space:]:'`
+  SSID="ssid=cuddlebot-$HMAC"
+  sed "s/ssid=cuddlebot/$SSID/" "$CONFIN" > "$CONFOU"
 fi
 
 case "$1" in
