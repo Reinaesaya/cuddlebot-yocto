@@ -17,5 +17,6 @@ SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
            file://defconfig \
            file://0001-ARM-i.MX6-Wandboard-add-wifi-bt-rfkill-driver.patch \
            file://0002-ARM-dts-wandboard-add-binding-for-wand-rfkill-driver.patch \
-           file://0003-Vivante-v4-driver.patch"
+           file://0003-Vivante-v4-driver.patch \
+           file://0004-imx6qdl-wandboard-dtsi-add-i2c3-devices.patch"
 LOCALVERSION = "-tamer"
