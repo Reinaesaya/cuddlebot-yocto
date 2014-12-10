@@ -5,7 +5,7 @@ DESC="HOSTAP Daemon"
 
 CONFIN="/etc/hostapd.conf"
 CONFOU="/var/local/etc/hostapd.conf"
-ARGS="$CONFOU -B"
+ARGS="-B $CONFOU"
 
 test -f "$DAEMON" || exit 0
 
