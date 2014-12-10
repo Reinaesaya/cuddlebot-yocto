@@ -5,11 +5,19 @@ auto lo
 iface lo inet loopback
 
 # Wireless interfaces
-iface wlan0 inet dhcp
-  wireless_mode managed
-  wireless_essid any
-  wpa-driver wext
-  wpa-conf /etc/wpa_supplicant.conf
+auto wlan0
+iface wlan0 inet static
+  address 10.10.10.1
+  broadcast 10.10.10.255
+  network 10.10.10.0
+  netmask 255.255.255.0
+  post-up /etc/init.d/dnsmasq start
+  post-down /etc/init.d/dnsmasq stop
+
+#  wireless_mode managed
+#  wireless_essid any
+#  wpa-driver wext
+#  wpa-conf /etc/wpa_supplicant.conf
 
 iface atml0 inet dhcp
 

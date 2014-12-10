@@ -4,10 +4,12 @@ NAME=hostapd
 DESC="HOSTAP Daemon"
 
 CONFIN="/etc/hostapd.conf"
-CONFOU="/tmp/hostapd-local.ELcyOo.conf"
+CONFOU="/var/local/etc/hostapd.conf"
 ARGS="$CONFOU -B"
 
 test -f "$DAEMON" || exit 0
+
+[ -d /var/local/etc ] || mkdir -p /var/local/etc
 
 set -e
 

@@ -1,5 +1,5 @@
 diff --git a/arch/arm/boot/dts/imx6qdl-wandboard.dtsi b/arch/arm/boot/dts/imx6qdl-wandboard.dtsi
-index 5fb0916..1bbd502 100644
+index 5fb0916..247ccd4 100644
 --- a/arch/arm/boot/dts/imx6qdl-wandboard.dtsi
 +++ b/arch/arm/boot/dts/imx6qdl-wandboard.dtsi
 @@ -89,6 +89,28 @@
@@ -45,3 +45,26 @@ index 5fb0916..1bbd502 100644
  		pinctrl_spdif: spdifgrp {
  			fsl,pins = <
  				MX6QDL_PAD_ENET_RXD0__SPDIF_OUT		0x1b0b0
+@@ -247,16 +276,20 @@
+ 	status = "okay";
+ };
+ 
+-&usdhc1 {
++&usdhc1 {  /* Baseboard microSD slot */
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_usdhc1>;
++	bus-width = <4>;
++	vmmc-supply = <&reg_3p3v>;
+ 	cd-gpios = <&gpio1 2 0>;
+ 	status = "okay";
+ };
+ 
+-&usdhc3 {
++&usdhc3 { /* Module microSD slot */
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_usdhc3>;
++	vmmc-supply = <&reg_3p3v>;
+ 	cd-gpios = <&gpio3 9 0>;
+ 	status = "okay";
+ };
++

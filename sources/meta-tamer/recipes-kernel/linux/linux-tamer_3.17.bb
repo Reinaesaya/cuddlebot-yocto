@@ -12,6 +12,6 @@ include linux-tamer.inc
 PV = "3.17+git${SRCPV}"
 
 SRCBRANCH = "linux-3.17.y"
-SRCREV = "7623e24478504740c32595cb987bd44a65da931b"
+SRCREV = "30c80cbd7c775cb480248b08673cf5e9a57342fb"
 
 COMPATIBLE_MACHINE = "(mxs|mx3|mx5|mx6)"
