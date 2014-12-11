@@ -1,0 +1,13 @@
+diff --git a/include/configs/wandboard.h b/include/configs/wandboard.h
+index b4b90f3..9a7e7b5 100644
+--- a/include/configs/wandboard.h
++++ b/include/configs/wandboard.h
+@@ -51,7 +51,7 @@
+ #define CONFIG_CMD_BMODE
+ #define CONFIG_CMD_SETEXPR
+ 
+-#define CONFIG_BOOTDELAY		5
++#define CONFIG_BOOTDELAY		2
+ 
+ #define CONFIG_SYS_MEMTEST_START	0x10000000
+ #define CONFIG_SYS_MEMTEST_END		(CONFIG_SYS_MEMTEST_START + 500 * SZ_1M)
