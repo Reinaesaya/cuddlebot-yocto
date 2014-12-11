@@ -1,9 +1,6 @@
 [submodule "sources/base"]
 	path = sources/base
 	url = git://github.com/Freescale/fsl-community-bsp-base
-[submodule "sources/meta-darwin"]
-	path = sources/meta-darwin
-	url = git://git.yoctoproject.org/meta-darwin
 [submodule "sources/meta-fsl-arm"]
 	path = sources/meta-fsl-arm
 	url = git://git.yoctoproject.org/meta-fsl-arm

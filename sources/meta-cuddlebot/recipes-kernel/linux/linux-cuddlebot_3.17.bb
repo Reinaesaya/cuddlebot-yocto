@@ -7,7 +7,7 @@ provide support for some backported features and fixes, or because it was applie
 and takes some time to become part of a stable version, or because it is not applicable for \
 upstreaming."
 
-include linux-tamer.inc
+include linux-cuddlebot.inc
 
 PV = "3.17+git${SRCPV}"
 

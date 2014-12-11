@@ -1,8 +1,8 @@
 image:
-	bitbake core-image-minimal
+	bitbake cuddlebot-image
 
 sdk: sanity
-	bitbake core-image-minimal -c populate_sdk
+	bitbake cuddlebot-image -c populate_sdk
 
 sanity: conf/sanity.conf
 	touch conf/sanity.conf

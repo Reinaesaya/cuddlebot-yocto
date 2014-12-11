@@ -10,8 +10,8 @@ SRC_URI = " \
 
 inherit update-rc.d
 
-INITSCRIPT_NAME = "dnsmasq"
-INITSCRIPT_PARAMS = "defaults"
+INITSCRIPT_NAME = "cuddled"
+INITSCRIPT_PARAMS = "defaults 90 20"
 
 S = "${WORKDIR}"
 
