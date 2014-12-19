@@ -1,3 +1,19 @@
+build:
+	docker run --rm \
+	--volume /yocto:/yocto \
+	--workdir /yocto \
+	--tty --interactive \
+	cuddlebot-dev /bin/bash -c \
+	'. setup-environment build && bitbake cuddlebot-image'
+
+sdk:
+	docker run --rm \
+	--volume /yocto:/yocto \
+	--workdir /yocto \
+	--tty --interactive \
+	cuddlebot-dev /bin/bash -c \
+	'. setup-environment build && bitbake cuddlebot-image -c populate_sdk'
+
 c: console
 console:
 	docker run --rm \
@@ -35,4 +51,4 @@ share:
 		--volume /var/run/docker.sock:/docker.sock \
 		svendowideit/samba cuddlebot-data
 
-.PHONY: vm c cvm console console-vm down image share up volume
+.PHONY: build c cvm console console-vm down image sdk share up vm volume
