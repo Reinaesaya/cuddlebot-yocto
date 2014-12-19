@@ -18,6 +18,7 @@ RDEPENDS_${PN} = " \
     hostapd \
     i2c-tools \
     iw \
+    kernel-module-bnep \
     kernel-module-brcmfmac \
     kernel-module-brcmutil \
     kernel-module-ftdi-sio \
