@@ -137,7 +137,8 @@ This particular configuration exports the `/yocto` folder to the
 This specific subnet describes the private network with the host machine.
 
 On OS X, you may then connect to the export through the Finder using the
-virtual machine IP address `nfs://172.16.1.128/yocto`.
+virtual machine IP address, for example `nfs://172.16.1.128/yocto`. Adjust
+the IP address as appropriate for your setup.
 
 
 ## Project File Organization
