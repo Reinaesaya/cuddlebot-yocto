@@ -79,7 +79,14 @@ make concole
 make vm
 ```
 
-The disk image is saved to:
+The `build` command requires that you copy the Cuddlebot control server
+executables `cuddled` and `cuddlespeak` to:
+
+```sh
+sources/meta-cuddlebot/recipes-webserver/cuddled/cuddled/
+```
+
+If the build succeeds, the system image is saved to:
 
 ```sh
 /yocto/build/tmp/deploy/images/wandboard-quad/cuddlebot-image-wandboard-quad.sdcard
@@ -88,6 +95,20 @@ The disk image is saved to:
 More targets are available in the `Makefile`, but are not documented here.
 As before, if you run into permission errors, you may need to run the
 commands as root.
+
+To use the system image on the Cuddlebot, transfer the data onto a suitable
+MicroSD card, for example:
+
+```sh
+$ dd if=cuddlebot-image-wandboard-quad.sdcard of=/dev/disk2 bs=1m
+```
+
+Insert the MicroSD card into the slot on the Wandboard CPU module. Leave the
+MicroSD card slot on the main PCB empty. The board will not boot with the
+external MicroSD card slot populated. The image has been configured to start
+a Wi-Fi wireless access point with an address starting with `cuddlebot-` and
+the password `music59.vote`. The control server should start automatically
+if there are no errors.
 
 For more information about Yocto, please refer to the
 [project reference manual][yocto_manual].
