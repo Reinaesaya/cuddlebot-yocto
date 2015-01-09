@@ -31,7 +31,7 @@ console-vm:
 	cuddlebot-dev /bin/bash
 
 vm:
-	BOOT2DOCKER_PROFILE=$(PWD)/docker/boot2docker-profile boot2docker init
+	BOOT2DOCKER_PROFILE=docker/boot2docker-profile boot2docker init
 
 up:
 	boot2docker up
@@ -40,7 +40,7 @@ down:
 	boot2docker down
 
 image:
-	docker build -t cuddlebot-dev $(PWD)/docker/cuddlebot-dev
+	docker build -t cuddlebot-dev docker/cuddlebot-dev
 
 volume:
 	docker run --name cuddlebot-data --volume /yocto busybox true ||:
