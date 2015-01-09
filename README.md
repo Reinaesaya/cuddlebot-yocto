@@ -79,6 +79,10 @@ make concole
 make vm
 ```
 
+More targets are available in the `Makefile`, but are not documented here.
+As before, if you run into permission errors, you may need to run the
+commands as root.
+
 The `build` command requires that you copy the Cuddlebot control server
 executables `cuddled` and `cuddlespeak` to:
 
@@ -91,10 +95,6 @@ If the build succeeds, the system image is saved to:
 ```sh
 /yocto/build/tmp/deploy/images/wandboard-quad/cuddlebot-image-wandboard-quad.sdcard
 ```
-
-More targets are available in the `Makefile`, but are not documented here.
-As before, if you run into permission errors, you may need to run the
-commands as root.
 
 To use the system image on the Cuddlebot, transfer the data onto a suitable
 MicroSD card, for example:
