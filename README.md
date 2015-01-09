@@ -107,8 +107,8 @@ Insert the MicroSD card into the slot on the Wandboard CPU module. Leave the
 MicroSD card slot on the main PCB empty. The board will not boot with the
 external MicroSD card slot populated. The image has been configured to start
 a Wi-Fi wireless access point with an address starting with `cuddlebot-` and
-the password `music59.vote`. The control server should start automatically
-if there are no errors.
+the password `music59.vote`. The control server should start automatically,
+if there are no errors, and will be available at `http://cuddlebot/`.
 
 For more information about Yocto, please refer to the
 [project reference manual][yocto_manual].
