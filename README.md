@@ -133,11 +133,11 @@ You may then configure NFS through the `/etc/exports` configuration file:
 ```
 
 This particular configuration exports the `/yocto` folder to the
-`172.16.1.0/24` subnet without encryption with all access as root.
+`172.16.1.0/24` subnet without encryption with all access mapped to root.
 This specific subnet describes the private network with the host machine.
 
 On OS X, you may then connect to the export through the Finder using the
-address `nfs://172.16.1.0/yocto`.
+virtual machine IP address `nfs://172.16.1.128/yocto`.
 
 
 ## Project File Organization
