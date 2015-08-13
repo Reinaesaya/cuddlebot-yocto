@@ -4,6 +4,7 @@ The Cuddlebot System Image is based on the
 [Yocto Embedded Linux Project][yocto] and configures the Linux operating
 system to allow wireless access to the Cuddlebot Control Server over Wi-Fi.
 
+This version of the system setup is an update of the [original][original]. It includes updates submodule repositories accurate as of August 2015 for Xubuntu 14.04, as well as more accurate build documentation in the README. 
 
 ## Getting Started
 
@@ -23,8 +24,9 @@ The Git repository depends on a number of sub-repositories. Either of these
 two commands should check out these sub-repositories:
 
 ```sh
-$ git checkout --recursive https://github.com/mikepb/cuddlebot-yocto.git /yocto
-$ git submodule init && git submodule update
+$ sudo git clone https://github.com/reinaesaya/cuddlebot-yocto.git /yocto
+$ cd /yocto
+$ sudo git submodule init && sudo git submodule update
 ```
 
 The first command checks out the repository to `/yocto` as required. The
@@ -83,8 +85,8 @@ More targets are available in the `Makefile`, but are not documented here.
 As before, if you run into permission errors, you may need to run the
 commands as root.
 
-The `build` command requires that you copy the Cuddlebot control server
-executables `cuddled` and `cuddlespeak` to:
+The `build` command requires that you copy the [Cuddlebot control server][go-cuddlebot]
+executables `cuddled` and `cuddlespeak` from the `bin-arm-linux` folder to:
 
 ```sh
 sources/meta-cuddlebot/recipes-webserver/cuddled/cuddled/
@@ -97,10 +99,18 @@ If the build succeeds, the system image is saved to:
 ```
 
 To use the system image on the Cuddlebot, transfer the data onto a suitable
-MicroSD card, for example:
+MicroSD card:
 
-```sh
-$ dd if=cuddlebot-image-wandboard-quad.sdcard of=/dev/disk2 bs=1m
+```bash
+# Check for mounted sdcard
+df -h
+# Assuming sdc1 and sdc2 mounted, unmount them
+# Important: Do NOT touch sda. Make sure partitions being altered is indeed the sdcard
+sudo umount /dev/sdc1
+sudo umount /dev/sdc2
+# Write to sdcard
+# Note: Copied to sdc, not sdc1 or sdc2
+sudo dd if=cuddlebot-image-wandboard-quad.sdcard of=/dev/sdc bs=1M
 ```
 
 Insert the MicroSD card into the slot on the Wandboard CPU module. Leave the
@@ -191,7 +201,8 @@ the IP address as appropriate for your setup.
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
+[original]: https://github.com/mikepb/cuddlebot-yocto/
+[go-cuddlebot]: https://github.com/Reinaesaya/go-cuddlebot
 [boot2docker]: http://boot2docker.io
 [docker]: https://www.docker.com
 [nfs]: https://en.wikipedia.org/wiki/Network_File_System
